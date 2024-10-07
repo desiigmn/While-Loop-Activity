@@ -3,14 +3,26 @@ function numberGuess() {
     let guess = 0;
 
     while (guess !== correctNumber) {
-    guess = parseInt(prompt("Guess a number between 1 to 10:"));
+        let input = prompt("Guess a number between 1 to 10:");
 
-    if (guess > correctNumber) {
-       alert("Too high!");
-    } else if (guess < correctNumber) {
-        alert("Too low!");
-    } else {
-        alert("Correct!");
-    }
+        if (input === null) {
+            alert("Canceled.");
+            break;
+        }
+
+        guess = parseInt(input);
+
+        if (isNaN(guess)) {
+            alert("Please enter a valid number.");
+            continue;
+        }
+
+        if (guess > correctNumber) {
+            alert("Too high!");
+        } else if (guess < correctNumber) {
+            alert("Too low!");
+        } else {
+            alert("Correct!");
+        }
     }
 }
